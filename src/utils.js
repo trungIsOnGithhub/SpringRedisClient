@@ -1,12 +1,10 @@
-// @ts-check
-
 import { getUsers } from "./api";
 
 /**
  * @param {string[]} names
  * @param {string} username
  */
-export const parseRoomName = (names, username) => {
+export function parseRoomName(names, username) {
   for (let name of names) {
     if (typeof name !== 'string') {
       name = name[0];

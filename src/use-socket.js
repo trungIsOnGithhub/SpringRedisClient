@@ -2,9 +2,7 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 // eslint-disable-next-line no-unused-vars
 import io, { Socket } from "socket.io-client";
-import { emitMessage,
-  // getEventSource 
-} from "./api";
+import { emitMessage,} from "./api";
 import { parseRoomName } from "./utils";
 /**
  * @param {import('./state').UserEntry} newUser

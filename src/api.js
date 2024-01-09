@@ -7,14 +7,11 @@ export const MESSAGES_TO_LOAD = 10;
 
 function url(path) { return `${BASE_URL}${path}`; }
 
-/** Checks if there's an existing session. */
+// Check for existing session
 export const getMe = () => {
   return axios.get(url('/users/me'))
-    .then(x => {
-      console.log(JSON.stringify("Me : " + x.data));
-      return x.data;
-    })
-    .catch(_ => null);
+    .then(res => { return res.data; })
+    .catch(err => console.log(err));
 };
 
 /** 
@@ -78,20 +75,10 @@ export const logOut = () => {
   // return axios.post(url('/auth/logout'));
 };
 
-// /** 
-//  * Function for checking which deployment urls exist.
-//  * 
-//  * @returns {Promise<{
-//  *   heroku?: string;
-//  *   google_cloud?: string;
-//  *   vercel?: string;
-//  *   github?: string;
-//  * }>} 
-//  */
 // export const getButtonLinks = () => {
 //   return axios.get(url('/links'))
 //     .then(x => x.data)
-//     .catch(_ => null);
+//     .catch(err => console.log(err));
 // };
 // 
 // [{id:"1:2",names:["User1","User2"]},{id:"1:3",names:["User1","User3"]},{id:"1:4",names:["User1","User4"]},{id:"0",names:["General"]}]
@@ -102,7 +89,6 @@ export const logOut = () => {
  * @returns {Promise<Array<{ names: string[]; id: string }>>} 
  */
 export const getRooms = (userId) => {
-  console.log(typeof userId);
   switch(userId) {
     case 2:
       return [{id:"2:3",names:["User2","User3"]},{id:"1:2",names:["User1","User2"]},{id:"2:4",names:["User2","User4"]},{id:"0",names:["General"]}];
@@ -153,4 +139,4 @@ export const emitMessage = (type = "", user, message) => {
   console.log(allMessages[message.roomId]);
 };
 
-// export const getEventSource = (userId) => new EventSource(url(`/chat/stream?userId=${userId}`));
+// export function getEventSource(userId) { return new EventSource(url(`/chat/stream?userId=${userId}`)); }
