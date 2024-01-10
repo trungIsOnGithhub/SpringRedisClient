@@ -1,4 +1,4 @@
-// @ts-check
+
 import React, { useMemo } from "react";
 import { getAvatarByUserAndRoomId } from "../../../../../utils";
 import ChatIcon from "./ChatIcon";

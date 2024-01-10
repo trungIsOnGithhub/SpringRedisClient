@@ -1,4 +1,4 @@
-// @ts-check
+
 import { useCallback, useEffect, useRef, useState } from "react";
 // eslint-disable-next-line no-unused-vars
 import io, { Socket } from "socket.io-client";

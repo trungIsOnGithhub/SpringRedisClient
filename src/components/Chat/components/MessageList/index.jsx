@@ -1,4 +1,4 @@
-// @ts-check
+
 import React from "react";
 import { MESSAGES_TO_LOAD } from "../../../../api";
 import InfoMessage from "./components/InfoMessage";

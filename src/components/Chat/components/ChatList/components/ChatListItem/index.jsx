@@ -1,4 +1,4 @@
-// @ts-check
+
 import "./style.css";
 import React, { useMemo } from "react";
 import { useAppState } from "../../../../../../state";

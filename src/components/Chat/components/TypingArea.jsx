@@ -1,4 +1,4 @@
-// @ts-check
+
 const TypingArea = ({ message, setMessage, onSubmit }) => (
   <div className="p-3 chat-input-section">
     <form className="row" onSubmit={onSubmit}>

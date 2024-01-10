@@ -1,4 +1,4 @@
-// @ts-check
+
 import React, { useMemo } from "react";
 import ChatListItem from "./components/ChatListItem";
 import Footer from "./components/Footer";

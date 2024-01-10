@@ -1,4 +1,4 @@
-// @ts-check
+
 const InfoMessage = ({ message }) => {
   return (
     <p

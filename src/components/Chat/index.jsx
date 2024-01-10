@@ -1,4 +1,4 @@
-// @ts-check
+
 import React from "react";
 import ChatList from "./components/ChatList";
 import MessageList from "./components/MessageList";

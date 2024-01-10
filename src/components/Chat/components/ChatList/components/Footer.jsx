@@ -1,4 +1,4 @@
-// @ts-check
+
 
 import React from "react";
 import { Plug } from "react-bootstrap-icons";

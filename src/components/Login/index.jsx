@@ -1,4 +1,4 @@
-// @ts-check
+
 import { Toast } from "react-bootstrap";
 import React, { useState, useRef } from "react";
 import "./style.css";

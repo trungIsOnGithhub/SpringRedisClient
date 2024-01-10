@@ -1,4 +1,4 @@
-// @ts-check
+
 import React from "react";
 import { CardText } from "react-bootstrap-icons";
 

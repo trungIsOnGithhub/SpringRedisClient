@@ -1,4 +1,4 @@
-// @ts-check
+
 import { useCallback } from "react";
 import { useEffect, useState, useRef } from "react";
 import { addRoom, getMessages } from "../../api";
