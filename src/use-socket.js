@@ -11,15 +11,16 @@ const updateUser = (newUser, user, dispatch, infoMessage) => {
   if (user.username === newUser.username) {
     return;
   }
+
   dispatch({ type: "set user", payload: newUser });
+
   if (infoMessage !== undefined) {
     dispatch({
       type: "append message",
       payload: {
         id: "0",
         message: {
-          /** Date isn't shown in the info message, so we only need a unique value */
-          date: Math.random() * 10000,
+          date: Date.now(),// today Date if not present
           from: "info",
           message: infoMessage,
         },
@@ -28,40 +29,20 @@ const updateUser = (newUser, user, dispatch, infoMessage) => {
   }
 };
 
-
-const onShowRoom = (room, username, dispatch) => dispatch({
-  type: "add room",
-  payload: {
-    id: room.id,
-    name: parseRoomName(room.names, username),
-  },
-});
-
-const onMessage = (message, dispatch) => {
-  dispatch({
-    type: "make user online",
-    payload: message.from,
-  });
-  dispatch({
-    type: "append message",
-    payload: { id: message.roomId === undefined ? "0" : message.roomId, message },
-  });
-};
-
-/** @returns {[Socket, boolean, () => void]} */
 const useSocket = (user, dispatch, onLogOutBase) => {
   const [connected, setConnected] = useState(false);
   const eventSourceRef = useRef(null);
 
   const emit = useCallback(async (type, message) => {
-    console.log("]]]]]]" + JSON.stringify(type));
-    console.log("]]]]]]" + JSON.stringify(user));
-    console.log("]]]]]]" + JSON.stringify(message));
+    // console.log("]]]]]]" + JSON.stringify(type));
+    // console.log("]]]]]]" + JSON.stringify(user));
+    // console.log("]]]]]]" + JSON.stringify(message));
     // await emitMessage(type, user, message);
     dispatch({
       type: "append message",
       payload: { id: message.roomId === undefined ? "0" : message.roomId, message },
     });
+
     return {};
   }, [user]);
 
